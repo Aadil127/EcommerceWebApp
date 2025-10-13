@@ -1,0 +1,169 @@
+table{
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    border-radius: 15px;
+    box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    border: none;
+}
+th{
+    font-weight: 900;
+    background-color: var(--navBackground);
+    /* background-color: hsl(from var(--navBackground) h s calc(l - 50%)); */
+    /* background-color:rgb(from var(--navBackground) 100 g b);
+    background-color: oklch(from var(--navBackground) 1 c h); */
+}
+th,td{
+    border: 1px solid rgb(from var(--textcolor) r g b /0.3);
+    width: 200px;
+    text-align: left;
+    padding: 10px;
+    max-width: 200px;
+    font-size: 19px;
+}
+
+thead th {
+    position: sticky;
+    top: 0;               /* sticks to top of container */
+    z-index: 2;           /* make sure it stays above table rows */
+}
+
+table tr:first-child th,
+table tr:first-child td {
+  border-top: none;
+}
+table tr:last-child th,
+table tr:last-child td {
+  border-bottom: none;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: none;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: none;
+}
+
+.contentRow{
+    transition: background-color 0.3s ease;
+    border-radius:15px;
+    overflow-x: scroll;
+    overflow-y: auto;
+}
+.contentRow:hover{
+    background-color: rgba(0, 0, 0, 0.18);
+    color: var(--linkColor);
+    /* border: 2px solid red; */
+}
+
+.categoryHeading{
+    user-select: none;
+    width:fit-content;
+    margin: 0px 20px;
+    text-shadow: 2px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+#editStockInfo{
+    user-select: none;
+    position: sticky;
+    top: 50px;
+    padding: 5px;
+    margin: 10px;
+    height: 30px;
+    width: 130px;
+    background-color: var(--navBackground);
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: var(--boxShadow);
+    transition: transform 0.4s ease-in;
+    z-index: 100;
+}
+
+#editStockInfoHeading{
+    position: absolute;
+    top:10px;
+    left: 8px;
+}
+#editStockInfoDark,#editStockInfoLight{
+    position: absolute;
+    top:8px;
+    left: 110px;
+    opacity: 0;
+}
+#editStockInfoDark{
+    opacity: 1;
+}
+
+#moreOrderDetail{
+    user-select: none;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    transform: translate(-50%, -50%);
+    max-height: 500px;
+    overflow-y: auto;
+    /* background: white;
+    color: black; */
+    background-color: var(--backgroundColor);
+    color: var(--textcolor);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+#moreOrderDetail.active{
+    display: block;
+}
+
+.tableContainer{
+    /* max-width: 900px; */
+    overflow: auto;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.moreOrderDetailHeading{
+    font-weight: 600;
+    font-size:20px;
+    padding-left: 15px;
+}
+
+.moreOrderDetailTable.th,.moreOrderDetailTable.td{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.imageUpload input[type="file"] {
+    display: none;
+}
+
+.imageUpload label {
+    background-color: #4CAF50;
+    width: fit-content;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-left: 5px;
+    box-shadow: var(--boxShadow);
+    display: inline-block;
+}
+
+.imageUpload label:hover {
+    background-color: #45a049;
+}
+
