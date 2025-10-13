@@ -36,18 +36,6 @@ CREATE TABLE `cart` (
   `CartID` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`ID`, `UsersID`, `ProductsID`, `Quantity`, `SubTotal`, `CartID`) VALUES
-(1, 3, 1, 5, 50, 'cart_68ec759f71caf'),
-(2, 3, 6, 1, 10, 'cart_68ec759f71caf'),
-(3, 2, 10, 1, 40, 'cart_68ec770880c2c'),
-(4, 2, 2, 5, 50, 'cart_68ec770880c2c'),
-(5, 4, 1, 5, 50, 'cart_68ec7c08483ca'),
-(6, 4, 6, 1, 10, 'cart_68ec7c08483ca');
-
 -- --------------------------------------------------------
 
 --
@@ -62,14 +50,6 @@ CREATE TABLE `orders` (
   `CartID` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`ID`, `UsersID`, `Total`, `Date`, `CartID`) VALUES
-(1, 3, 60, '2025-10-13 05:44:31', 'cart_68ec759f71caf'),
-(2, 2, 90, '2025-10-13 05:50:32', 'cart_68ec770880c2c'),
-(3, 4, 60, '2025-10-13 06:11:52', 'cart_68ec7c08483ca');
 
 -- --------------------------------------------------------
 
@@ -92,18 +72,6 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`ID`, `Name`, `Price`, `ImgPath`, `Quantity`, `Category`, `PurchasedPrice`, `StartingQuantity`) VALUES
-(1, 'Cocal cola', 10, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 1000, 'drinks', 0, 100),
-(2, '7UP', 10, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 995, 'drinks', 0, 1000),
-(3, 'C', 15, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 1000, 'drinks', 0, 100),
-(4, 'D', 20, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 100, 'drinks', 0, 100),
-(5, 'E', 10, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 1000, 'drinks', 0, 100),
-(6, 'Chips A', 10, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 499, 'snacks', 0, 100),
-(7, 'Chips B', 15, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 500, 'snacks', 0, 100),
-(8, 'Chips C', 30, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 400, 'snacks', 0, 100),
-(9, 'F', 15, 'images/thomas-le-pRJhn4MbsMM-unsplash.jpg', 1000, 'drinks', 10, 100),
-(10, 'Red Bull', 40, 'uploads/img_68ec76a35c8fe9.99912411.jpg', 199, 'drinks', 30, 200);
-
 -- --------------------------------------------------------
 
 --
@@ -119,16 +87,6 @@ CREATE TABLE `users` (
   `RegDate` date DEFAULT curdate()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`ID`, `Name`, `Phone`, `Password`, `Address`, `RegDate`) VALUES
-(1, 'A', 1, '$2y$10$iv6/wwJQB/UGPzravktnfeIYLJFoPzW.3MqnPEQ752izV3Fcm9ZSi', 'a', '2025-10-13'),
-(2, 'B', 2, '$2y$10$vYAhWM/wJwGvh4SDnuQkEe.vWUb75iGuqhSe0OLypkmIPLa/r8PBG', 'abcd 1234', '2025-10-13'),
-(3, 'C', 3, '$2y$10$Lj4S9NAxXitiHb.UW1dr2.G1rjms.L88NtoEUwfP4SqN90L5tk5z2', 'abcd 1234', '2025-10-13'),
-(4, 'D', 4, '$2y$10$19bwxYPtKzopL5jiszyUb.dsfzOz81JQmiqstp3YZSQJ6whxdPdry', 'abcd 1234', '2025-10-13'),
-(5, 'E', 5, '$2y$10$0OGB2riiadMS6KPXdL3w/epa.lax1HTGowlueF4Yjd6bYABROkV.G', 'abcd 1234', '2025-10-13');
 
 --
 -- Indexes for dumped tables
