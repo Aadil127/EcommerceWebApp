@@ -1,10 +1,10 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['userID'])) {
     header("Location: login.php");
     exit();
 }
+ob_start();
 include 'db.php';
 
 include 'htmlElements/adminHeader.html';
@@ -82,4 +82,5 @@ $conn->close();
 <?php
 
 include 'htmlElements/footer.html';
+ob_end_clean();
 ?>

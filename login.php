@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include 'db.php';
 include 'htmlElements/header.html';
 include 'htmlElements/loginnav.html';
@@ -53,5 +54,8 @@ if($error !== ""){
     <button onclick="window.location.href='signup.php'">signup</button>
 </form>
 
-<?php include 'htmlElements/footer.html';?>
+<?php
+include 'htmlElements/footer.html';
+ob_end_clean();
+?>
 

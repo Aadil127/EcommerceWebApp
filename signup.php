@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include 'db.php';
 include 'htmlElements/header.html';
 include 'htmlElements/loginnav.html';
@@ -52,4 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 </script>
 
-<?php include 'htmlElements/footer.html';?>
+<?php
+include 'htmlElements/footer.html';
+ob_end_clean();
+?>
