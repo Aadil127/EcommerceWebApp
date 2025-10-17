@@ -25,7 +25,7 @@ This is very simple application i made it to understand how i can use php and in
 >User with id 1 will have admin access to this website you can change that in config.php file
 
 
-![License](https://img.shields.io/badge/license-GNU-%2300ffff)
+![License](https://img.shields.io/badge/license-GPL-%2300ffff)
 ![Last commit](https://img.shields.io/github/last-commit/Aadil127/EcommerceWebApp?color=%2300ffff)
 
 
