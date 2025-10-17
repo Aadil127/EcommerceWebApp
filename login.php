@@ -1,9 +1,9 @@
 <?php
 session_start();
 ob_start();
-include 'db.php';
-include 'htmlElements/header.html';
-include 'htmlElements/loginnav.html';
+include (__DIR__ . 'db.php');
+include (__DIR__ . 'htmlElements/header.html');
+include (__DIR__ . 'htmlElements/loginnav.html');
 
 $error="";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -55,7 +55,7 @@ if($error !== ""){
 </form>
 
 <?php
-include 'htmlElements/footer.html';
+include (__DIR__ . 'htmlElements/footer.html');
 ob_end_clean();
 ?>
 
