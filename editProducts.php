@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         // if($fileSize > 2 * 1024 * 1024) die("Error: File size must be less than 2MB.");
 
         $uploadDir = "uploads/";
-        // if(!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
+        if(!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 
         $newFileName = uniqid("img_", true) . "." . $ext;
         $destination = $uploadDir . $newFileName;
