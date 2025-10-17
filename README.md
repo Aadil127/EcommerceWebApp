@@ -42,7 +42,7 @@ margin-top:10px; padding:5px; padding-left:10px; border-radius:5px">
 
 </div><br>
 
-![License](https://img.shields.io/badge/license-GNU-%2300ffff)
+![License](https://img.shields.io/badge/license-GPL-%2300ffff)
 ![Last commit](https://img.shields.io/github/last-commit/Aadil127/EcommerceWebApp?color=%2300ffff)
 
 
