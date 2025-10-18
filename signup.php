@@ -55,5 +55,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 include 'htmlElements/footer.html';
-ob_end_clean();
+ob_end_flush();
 ?>
