@@ -11,11 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         $username = $_POST['username'];
         $phone = $_POST['phone'];
+        $phone = preg_replace('/\D+/', '', $phone);
+        if (strlen($phone) > 10) $phone = substr($phone, -10);
+        if (!preg_match('/^\d{10}$/', $phone)) die("Invalid phone number format.");
+
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $address = $_POST['address'];
 
         $statement = $conn->prepare("INSERT INTO users (Name, Phone, Password, Address) VALUES (?, ?, ?, ?)");
-        $statement->bind_param("siss", $username,$phone, $password, $address);
+        $statement->bind_param("ssss", $username,$phone, $password, $address);
 
         if ($statement->execute()) {
             header("Location: login.php");

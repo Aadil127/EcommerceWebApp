@@ -38,7 +38,7 @@ CREATE TABLE `products` (
 CREATE TABLE `users` (
   `ID` int(10) UNSIGNED NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Phone` int(10) UNSIGNED NOT NULL,
+  `Phone` varchar(10) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Address` varchar(300) NOT NULL,
   `RegDate` date DEFAULT curdate()
