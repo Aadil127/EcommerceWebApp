@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['userID'])) {
     var_dump($_SESSION);
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 if(!isset($_SESSION['cart'])){
