@@ -5,6 +5,7 @@ if (!isset($_SESSION['userID'])) {
     header("Location: index.php");
     exit();
 }
+ob_start();
 include 'db.php';
 
 include 'htmlElements/adminHeader.html';
@@ -82,4 +83,5 @@ window.addEventListener("load", function() {
 
 <?php
 include 'htmlElements/footer.html';
+ob_end_flush();
 ?>
