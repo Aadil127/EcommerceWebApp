@@ -76,8 +76,8 @@ $conn->close();
     
 ?>
 
-<div style="width: 100%; max-width: 600px; height: 400px;">
-    <canvas id="barChart"></canvas>
+<div id="canvasContainer">
+    <canvas id="barChart">Currently can not show data</canvas>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -93,15 +93,16 @@ $conn->close();
 
     const ctx = document.getElementById('barChart').getContext('2d');
     const myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: labels,
             datasets: [{
                 label: "Orders",
                 data: values,
                 backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                borderColor: 'rgba(54, 162, 235, 0.6)',
-                borderWidth: 2
+                borderColor: 'rgba(0, 200, 200,0.5)',
+                borderWidth: 2,
+                tension: 0.3,
             }]
         },
         options: {
