@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo "Error: " . $_FILES['image']['error'];
 }
 
-if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET["productID"])){
+if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET["productId"])){
     $productName = $_GET["productName"];
     $productId = $_GET["productId"];
 
@@ -69,10 +69,9 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET["productID"])){
 
     $result = $statement->get_result();
     $row = $result->fetch_assoc();
-    if (is_file($row["ImgPath"])) {
+    if (is_file($row["ImgPath"])){
         unlink($row["ImgPath"]);
     }
-
 
     $statement = $conn->prepare("DELETE FROM products WHERE ID = ? AND Name = ?");
     $statement->bind_param("is", $productId, $productName);
@@ -82,12 +81,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET["productID"])){
 
 $conn->close();
 ?>
-
-<script>
-window.addEventListener("load", function() {
-  document.querySelectorAll("form").forEach(form => form.reset());
-});
-</script>
 
 <form action="editProducts.php" method="POST" enctype="multipart/form-data">
     <h3>Add New Product</h3>
@@ -105,12 +98,25 @@ window.addEventListener("load", function() {
 </form>
 
 
-<form action="editProducts.php" method="GET">
+<form action="editProducts.php" method="GET" onsubmit="confirmSubmit(event)">
     <h3>Remove Product</h3>
     <input type="number" name="productId" placeholder="Enter the product Id" required>
     <input type="text" name="productName" placeholder="Enter the product Name" required>
     <button type="submit">Submit</button>
 </form>
+
+<script>
+    window.addEventListener("load", function() {
+    document.querySelectorAll("form").forEach(form => form.reset());
+    });
+
+    function confirmSubmit(event){
+        const confirmed = confirm("Are you sure you want to remove product?");
+        if (!confirmed) {
+            event.preventDefault();
+        }
+    }
+</script>
 
 <?php
 include 'htmlElements/footer.html';
