@@ -60,11 +60,70 @@ if($statement->num_rows > 0){
 }
 
 
+$sql = "SELECT DATE_FORMAT(Date, '%Y-%m-%d') AS date, COUNT(*) AS total_orders FROM orders GROUP BY DATE_FORMAT(Date, '%Y-%m-%d') ORDER BY date";
+$statement = $conn->query($sql);
+
+$data = [];
+if($statement->num_rows > 0){
+    while($row = $statement->fetch_assoc()){
+        $data[$row["date"]] = $row["total_orders"];
+    }
+}
+
 $statement->close();
 $conn->close();
-
+    
+    
 ?>
 
+<div style="width: 100%; max-width: 600px; height: 400px;">
+    <canvas id="barChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const rootStyles = getComputedStyle(document.documentElement);
+    const textcolor = rootStyles.getPropertyValue("--textcolor").trim();
+
+    const chartData = <?php echo json_encode($data); ?>;
+    console.log(chartData);
+
+    const labels = Object.keys(chartData);
+    const values = Object.values(chartData);
+
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Orders",
+                data: values,
+                backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                borderColor: 'rgba(54, 162, 235, 0.6)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x : {
+                    title:{
+                        display: true,
+                        text: "Date",
+                    }
+                },
+                y: { 
+                    title:{
+                        display: true,
+                        text: "Orders",
+                    },
+                    beginAtZero: true 
+                }
+            }
+        }
+    });
+    </script>
 
 <?php
 
