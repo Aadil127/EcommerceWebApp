@@ -11,13 +11,6 @@ include 'htmlElements/adminHeader.html';
 include 'htmlElements/adminNavbar.html';
 include 'htmlElements/adminSidebar.html';
 
-// $sql = "SELECT orders.ID As orderID, Name, Date FROM orders INNER JOIN users ON orders.UsersID = users.ID;";
-
-// $sql = "SELECT users.Name AS userName, users.Id as userID, users.Address, users.Phone, products.Name, cart.Quantity, cart.cartID, orders.Date, orders.ID AS orderID FROM orders
-// INNER JOIN users ON orders.UsersID = users.ID
-// INNER JOIN cart ON cart.UsersID = users.ID
-// INNER JOIN products ON cart.ProductsID = products.ID
-// ORDER BY orderID";
 
 $sql = "SELECT users.Name as userName, users.Address as userAddress, users.Phone as userPhone,
 cart.CartID as cartID, products.Name as productName,products.ID as productID, cart.Quantity as productQuantity, cart.SubTotal as subTotal, orders.Date as orderDate, orders.ID as orderID, orders.Total as TotalAmount FROM cart
@@ -86,13 +79,6 @@ $conn->close();
 <div id="moreOrderDetail"></div>
 
 <script>
-    // const table = document.getElementById("ordersTable");
-    // console.log(table);
-    // let i = 0;
-    // table.querySelectorAll("tr").forEach(tr => function(){
-    //     console.log(i);
-    //     i++;
-    // });
 
     const orderDetails = <?php echo json_encode($orderDetails); ?>;
     console.log(orderDetails);

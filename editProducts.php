@@ -31,8 +31,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         if(!in_array($ext, $allowed)) die("Error: Only JPG, PNG, GIF files are allowed.");
 
-        // if($fileSize > 2 * 1024 * 1024) die("Error: File size must be less than 2MB.");
-
         $uploadDir = "uploads/";
         if(!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 
@@ -40,7 +38,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $destination = $uploadDir . $newFileName;
 
         if(move_uploaded_file($fileTmp, $destination)) {
-            // echo "success";
 
             $statement = $conn->prepare("INSERT INTO products(Name, Price, ImgPath, Quantity, Category, PurchasedPrice, StartingQuantity) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $statement->bind_param("sisisii", $productName,$price, $destination, $quatity, $category, $pruchasedPrice, $quatity);
@@ -95,6 +92,7 @@ $conn->close();
         <label for="imageInput" id="imageLabel">Choose image</label>
     </div>
     <button type="submit">Upload</button>
+    <h4 id="ImgInputName"></h4>
 </form>
 
 
@@ -116,6 +114,23 @@ $conn->close();
             event.preventDefault();
         }
     }
+
+
+    const imageInput = document.getElementById("imageInput");
+    const imageLabel = document.getElementById("imageLabel");
+    const ImgInputName = document.getElementById("ImgInputName");
+
+    imageInput.addEventListener('change', function() {
+    if (imageInput.files.length > 0) {
+        imageLabel.style.backgroundColor = "#5e755f";
+    
+        ImgInputName.textContent = "Img Name : " + imageInput.files[0].name;
+    }
+    else {
+        imageLabel.style.backgroundColor = "#4CAF50";
+        ImgInputName.textContent = '';
+    }
+});
 </script>
 
 <?php

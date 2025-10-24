@@ -194,8 +194,5 @@ cancelBtn.addEventListener("click", () => {
 </script>
 
 <?php
-
-
 include 'htmlElements/footer.html';
-
 ?>

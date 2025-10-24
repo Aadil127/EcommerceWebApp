@@ -1,40 +1,9 @@
-// document.querySelectorAll(".addToCart").forEach(btn => {
-//     btn.addEventListener("click", function(event) {
-//         let element = event.currentTarget; 
-//         let productId = element.dataset.id;
-
-//         let productName = element.parentElement.querySelector(".productName").textContent;
-//         alert("Added " + productName + " to cart");
-
-//         updateCart(productId, 1, this);
-//     });
-// });
-
-// document.querySelectorAll(".cartRemoveOne").forEach(btn => {
-//     btn.addEventListener("click", function(event) {
-//         let element = event.currentTarget; 
-//         let productId = element.dataset.id;
-//         updateCart(productId, -1, this);
-//     });
-// });
-
-// document.querySelectorAll(".cartAddOne").forEach(btn => {
-//     btn.addEventListener("click", function(event) {
-//         let element = event.currentTarget; 
-//         let productId = element.dataset.id;
-//         updateCart(productId, 1, this);
-//     });
-// });
-
-
 document.querySelectorAll(".addToCart, .cartRemoveOne, .cartAddOne, .removeFromCart").forEach(button =>{
     button.addEventListener("click", updateCart);
     button.addEventListener("keydown",function(event){
         if(event.key === "Enter") updateCart(event);
     })
 })
-
-
 
 function updateCart(event){
     event.preventDefault();
@@ -72,7 +41,6 @@ function updateCart(event){
      })
      .then(response => response.json())
      .then(data => {
-        // console.log(data);
         if(cartOptions) cartOptions.querySelector(".cartQuantityNumber").innerText = data.Quantity;
         if(data.productID === "removed") element.closest(".productCard").remove();
         if(window.location.pathname.includes("cart.php")){
@@ -86,7 +54,6 @@ function updateCart(event){
                 let totalPriceInt = 0;
                 document.querySelectorAll(".productPrice").forEach(function(element){
                     totalPriceInt += (parseInt(element.innerHTML.slice(0,-2)) * parseInt(element.parentElement.querySelector(".cartOptions").querySelector(".cartQuantityNumber").innerHTML));
-                    // console.log(parseInt(element.innerHTML.slice(0,-2)) * parseInt(element.parentElement.querySelector(".cartOptions").querySelector(".cartQuantityNumber").innerHTML));
                 })
                 totalProducts.innerHTML = "Total products : " + data.totalProducts;
                 totalPrice.innerHTML = "Total price : " + totalPriceInt + " ₹";

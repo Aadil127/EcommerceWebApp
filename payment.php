@@ -42,13 +42,6 @@ if($data["purchased"] === "true"){
             $statement->execute();
         }
 
-
-        // $prodcutIDArray= implode(',', array_map('intval', $_SESSION["cart"]));
-        // $sql = "SELECT SUM(Price) AS totalAmount FROM products WHERE ID in ($prodcutIDArray)";
-        // $statement = $conn->query($sql);
-        // $result = $statement->fetch_assoc();
-        // $totalPrice = $result["totalAmount"];
-
         $currentDateTime = date("Y-m-d H:i:s");
         $sql = "INSERT INTO orders (CartID, UsersID, Date, Total ) VALUES (?, ?, ?, ?)";
         $statement = $conn->prepare($sql);

@@ -56,8 +56,6 @@ else{
     </div>";
 }
 
-
-
 ?>
 <script src="cart.js"></script>
 
