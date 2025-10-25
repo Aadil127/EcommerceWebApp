@@ -181,6 +181,10 @@ nav{
     transition: transform 0.5s ease;
 }
 
+.sidebarLink a.active{
+    color: hsl(from var(--linkColor) 200 s 60%);
+}
+
 .sidebarLink:hover{
     transform: translateX(5px);
     cursor: pointer;
@@ -198,11 +202,6 @@ nav{
     font-weight: 500;
     transition: transform 0.5s ease;
 }
-
-.sidebarLink  a.active{
-    color: hsl(from var(--linkColor) 200 s 60%);
-}
-
 
 #sidebarToggle{
     position: fixed;
@@ -289,6 +288,7 @@ button:hover {
     height: 133px;
     width: 200px;
     object-fit: cover;
+    object-fit: contain;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
@@ -466,6 +466,13 @@ button:hover {
     font-weight: 500;
     transition: transform 0.5s ease;
 }
+
+.categoryLink a.active{
+    color: hsl(from var(--linkColor) 200 s 60%);
+}
+/* .categoryLink:has(a.active){
+    display: none;
+} */
 
 .categoryLink:hover{
     transform: translateX(5px);

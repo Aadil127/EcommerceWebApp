@@ -128,14 +128,14 @@ if(dropDownMenu){
     });
 }
 
-const links = document.querySelectorAll('.sidebarLink a');
-const current = window.location.pathname.split('/').pop();
+const links = document.querySelectorAll('.sidebarLink a, .categoryLink a');
+const currentFile = window.location.pathname.split('/').pop();
+const currentSearch = window.location.search
 
 links.forEach(link => {
-  if(link.getAttribute('href') === current){
-    link.classList.add('active');
-    link.parentElement.classList.add('active-parent');
-  }
+    if(link.getAttribute('href') === currentFile || link.getAttribute('href') === currentFile + currentSearch){
+        link.classList.add('active');
+    }
 });
 
 

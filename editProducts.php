@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $pruchasedPrice = $_POST["pruchasedPrice"];
         $price = $_POST["price"];
 
-        $allowed = ['jpg', 'jpeg', 'png', 'gif'];
+        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
         $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
         if(!in_array($ext, $allowed)) die("Error: Only JPG, PNG, GIF files are allowed.");
