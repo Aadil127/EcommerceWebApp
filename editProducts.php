@@ -6,6 +6,7 @@ if (!isset($_SESSION['userID'])) {
     exit();
 }
 ob_start();
+define('ALLOW_INCLUDE', true);
 include 'db.php';
 
 include 'htmlElements/adminHeader.html';

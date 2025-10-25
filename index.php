@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+define('ALLOW_INCLUDE', true);
 include 'db.php';
 include 'htmlElements/header.html';
 include 'htmlElements/loginnav.html';

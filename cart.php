@@ -8,7 +8,7 @@ if (!isset($_SESSION['userID'])) {
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart'] = [];
 }
-
+define('ALLOW_INCLUDE', true);
 include 'db.php';
 include 'htmlElements/header.html';
 include 'htmlElements/navbar.html';

@@ -1,3 +1,4 @@
+<?php if (!defined('ALLOW_INCLUDE')) exit('Access denied'); ?>
 <div class="productCard">
     <img src=<?= htmlspecialchars($ProductImgPath) ?> alt="product">
     <div class="productName"><?= htmlspecialchars($ProductName) ?></div>

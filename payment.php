@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
+    header('HTTP/1.1 403 Forbidden');
+    exit('Access denied');
+}
+define('ALLOW_INCLUDE', true);
 include 'db.php';
 $data = json_decode(file_get_contents("php://input"), true);
 

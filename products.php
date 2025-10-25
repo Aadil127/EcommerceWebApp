@@ -4,6 +4,7 @@ if (!isset($_SESSION['userID'])) {
     header("Location: index.php");
     exit();
 }
+define('ALLOW_INCLUDE', true);
 include 'db.php';
 include 'htmlElements/header.html';
 include 'htmlElements/navbar.html';

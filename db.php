@@ -1,4 +1,5 @@
 <?php
+if (!defined('ALLOW_INCLUDE')) exit('Access denied');
 
 $config = require "C:/xampp/myConfig/config.php";
 
