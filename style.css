@@ -199,6 +199,10 @@ nav{
     transition: transform 0.5s ease;
 }
 
+.sidebarLink  a.active{
+    color: hsl(from var(--linkColor) 200 s 60%);
+}
+
 
 #sidebarToggle{
     position: fixed;

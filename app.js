@@ -126,10 +126,17 @@ if(dropDownMenu){
             sidebarToggle();
         }
     });
-
-    
 }
 
+const links = document.querySelectorAll('.sidebarLink a');
+const current = window.location.pathname.split('/').pop();
+
+links.forEach(link => {
+  if(link.getAttribute('href') === current){
+    link.classList.add('active');
+    link.parentElement.classList.add('active-parent');
+  }
+});
 
 
 //category bar
