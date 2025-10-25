@@ -32,7 +32,8 @@ function updateCart(event){
     fetch("updateCart.php", {
         method: "POST",
         headers: {
-           "Content-Type": "application/json"
+           "Content-Type": "application/json",
+           "X-Requested-With": "XMLHttpRequest"
         },
         body: JSON.stringify({
            "productId": productId,
@@ -79,7 +80,8 @@ function handlePayment(){
     fetch("payment.php",{
         method: "POST",
         headers:{
-            "Content-Type" : "application/json"
+            "Content-Type" : "application/json",
+            "X-Requested-With": "XMLHttpRequest"
         },
         body: JSON.stringify({
             "purchased" : "true"

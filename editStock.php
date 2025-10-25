@@ -161,7 +161,10 @@ saveBtn.addEventListener("click", () => {
 
     fetch("updateProducts.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest"
+        },
         body: JSON.stringify(changedData)
     })
     .then(res => res.text())

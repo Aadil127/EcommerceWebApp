@@ -87,7 +87,6 @@ $conn->close();
     const textcolor = rootStyles.getPropertyValue("--textcolor").trim();
 
     const chartData = <?php echo json_encode($data); ?>;
-    console.log(chartData);
 
     const labels = Object.keys(chartData);
     const values = Object.values(chartData);
