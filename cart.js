@@ -5,6 +5,16 @@ document.querySelectorAll(".addToCart, .cartRemoveOne, .cartAddOne, .removeFromC
     })
 })
 
+if(document.getElementById("Cart")){
+    document.getElementById("Cart").addEventListener("click", redirectToCart);
+    document.getElementById("Cart").addEventListener("keydown",function(event){
+        if(event.key === "Enter") redirectToCart();
+    })
+}
+function redirectToCart(){
+    window.location.pathname = "cart.php";
+}
+
 function updateCart(event){
     event.preventDefault();
     const element = event.currentTarget;
